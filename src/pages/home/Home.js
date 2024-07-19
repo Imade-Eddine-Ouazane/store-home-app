@@ -1,12 +1,19 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
+import Aboutus from '../../components/aboutus/Aboutus';
+import Contact from '../../components/contact/contact';
 
-const Home = () => {
+function Home() {
     return (
+  
         <div>
             <Navbar/>
-
-            <h1>home  page</h1>
+            <Header/>
+            <Aboutus/>
+            <Contact/>
+            <Footer/>
         </div>
     )
 }

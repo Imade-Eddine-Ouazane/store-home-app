@@ -1,34 +1,5 @@
-.navbar-custom {
-    background-color: #2c3e50;
-    /* Dark background */
-}
-
-.navbar-brand-custom {
-    font-family: 'Cursive', sans-serif;
-    color: #ecf0f1;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-link-custom {
-    color: #ecf0f1;
-    font-size: 1.1rem;
-    transition: color 0.3s ease-in-out;
-}
-
-.nav-link-custom:hover {
-    color: #3498db;
-}
-
-.nav-item-custom.active .nav-link-custom {
-    color: #3498db;
-    font-weight: bold;
-}
-
-.navbar-toggler-custom {
-    border-color: #ecf0f1;
-}
-
-.navbar-toggler-icon-custom {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28236, 240, 241, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.bar {
+    width: 100%;
+    position: fixed;
+    z-index: 12;
 }

@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
 
-const Shope = () => {
+function Login() {
     return (
+  
+
         <div>
             <Navbar/>
-            <h1>shope page</h1>
+            <h1>login page</h1>
         </div>
     )
 }
-export default Shope;
+export default Login;
