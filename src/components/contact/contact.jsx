@@ -15,7 +15,7 @@ function Contact() {
                         <div className="info-box">
                             <i className="bi bi-geo-alt"></i>
                             <h3>Address</h3>
-                            <p>A108 Adam Street,<br/>New Delhi, 535022</p>
+                            <p>A108 Adam Street,<br/>New York, 535022</p>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -29,7 +29,7 @@ function Contact() {
                         <div className="info-box">
                             <i className="bi bi-envelope"></i>
                             <h3>Email Us</h3>
-                            <p>bragspot@gmail.com<br/>brag@gmail.com</p>
+                            <p>Home.store@gmail.com<br/>brag@gmail.com</p>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -41,22 +41,22 @@ function Contact() {
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 form">
-                <form action="contact.php" method="post" class="php-email-form">
-                    <div class="row gy-4">
-                        <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+            <div className="col-lg-6 form">
+                <form action="contact.php" method="post" className="php-email-form">
+                    <div className="row gy-4">
+                        <div className="col-md-6">
+                            <input type="text" name="name" className="form-control" placeholder="Your Name" required />
                         </div>
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required />
+                        <div className="col-md-6">
+                            <input type="email" className="form-control" name="email" placeholder="Your Email" required />
                         </div>
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject" required />
+                        <div className="col-md-12">
+                            <input type="text" className="form-control" name="subject" placeholder="Subject" required />
                         </div>
-                        <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        <div className="col-md-12">
+                            <textarea className="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                         </div>
-                        <div class="col-md-12 text-center">
+                        <div className="col-md-12 text-center">
                             <button type="submit">Send Message</button>
                         </div>
                     </div>

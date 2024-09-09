@@ -1,46 +1,102 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { Navbar, Nav } from 'react-bootstrap';
 import { useState } from 'react';
+import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
+import { Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import cartItems from "../../cartItems.js";
+import "./navbar.css";
 
 
-function MyNavbar() {
+const MyNavbar = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+
   return (
-    <div className="my-class">
-      <Navbar bg="light" expand="lg" className='bar'>
+    <Navbar expand="lg" fixed="top" bg="light" className="shadow-sm navbar">
       <Container>
-        <Navbar.Brand href="#home">Store Home</Navbar.Brand>
+        <Link to={'/'}>
+        <Navbar.Brand href="#home">
+          Store Home
+        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end">
-          <Nav className="mr-auto">
-            <Nav.Link className='i' href="#Home">Home</Nav.Link>
-            <Nav.Link className='i' href="#Shop">Shop</Nav.Link>
-            <Nav.Link className='i' href="#About_Us">About Us</Nav.Link>
-            <Nav.Link className='i' href="#Contact">Contact</Nav.Link>
-            <Nav.Link className='i' href={"/Cart"}><FontAwesomeIcon icon={faCartShopping} /></Nav.Link>
-           
-            <Nav.Link className='i' href="">
-           
-                <a href="" onClick={handleShow}><FontAwesomeIcon icon={faRightToBracket}/></a>
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="ms-auto">
             
+            <Nav.Link href="#home" className="mx-3"><Link to={'/'}>Home</Link></Nav.Link>
+            
+            
+            <Nav.Link href="#shop" className="mx-3"> <Link to={'/Shop'}>Shop</Link></Nav.Link>
+            
+       
+            <Nav.Link className="cart-link">
+                                    <Link to={'/Cart'}>
+                                    {totalQuantity > 0 && (
+                                        <Badge pill bg="danger" className="cart-badge">
+                                            {totalQuantity}
+                                        </Badge>
+                                    )}
+                                    
+                                    <span className="cart-icon-text">Cart</span>
+                                    </Link>
             </Nav.Link>
             
+            <Nav.Link href="#login" className="mx-3">
+              <Button variant="primary" onClick={handleShow}>
+                Login
+              </Button></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar></div>
+      <div id="id01" className="modal">
+      <Modal show={show} onHide={handleClose}>
+        
+        <Modal.Body>
+          
 
+            <div className="imgcontainer">
+              <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" className="avatar"/>
+            </div>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Email </Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="name@example.com"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="entre your password"
+                autoFocus
+              />
+            </Form.Group>
+          
+          <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"/> Remember me
+      </label>
+        </Modal.Body>
+        <Modal.Footer>
+          <div className="container" >
+          <Button className='cancelbtn' variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <span className='psw'>Forgot <a href='#' >password?</a></span>
+          </div>
+        </Modal.Footer>
+      </Modal>
+      </div>
+
+    </Navbar>
   );
 }
 

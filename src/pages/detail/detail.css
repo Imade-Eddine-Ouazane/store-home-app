@@ -1,0 +1,31 @@
+/* detail.css */
+
+.detail-page {
+    margin-top: 170px;
+}
+
+.detail-page .rating {
+    display: flex;
+    align-items: center;
+}
+
+.detail-page .star {
+    font-size: 1.5em;
+    color: #ddd;
+}
+
+.detail-page .star.filled {
+    color: #f39c12;
+}
+
+.detail-page .rating-text {
+    margin-left: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .detail-page .card-img-top {
+        height: 300px;
+        object-fit: cover;
+    }
+}

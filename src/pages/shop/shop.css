@@ -1,0 +1,76 @@
+/* shop.css */
+
+.shop-page {
+    margin-top: 170px;
+}
+
+.filter-section {
+    padding: 15px;
+    border-right: 1px solid #ddd;
+}
+
+.product-card {
+    margin-bottom: 20px;
+}
+
+.product-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    font-size: 1.2em;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #f39c12;
+}
+
+.rating-text {
+    margin-left: 5px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.cart-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .filter-section {
+        margin-bottom: 20px;
+    }
+
+    .product-card .card-img-top {
+        height: 150px;
+    }
+
+    .rating {
+        font-size: 0.9em;
+    }
+
+    .cart-badge {
+        top: -5px;
+        right: -5px;
+        font-size: 70%;
+    }
+}

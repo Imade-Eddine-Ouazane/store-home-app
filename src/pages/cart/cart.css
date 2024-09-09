@@ -1,0 +1,97 @@
+/* cart.css */
+
+/* Container for the cart page */
+
+
+.mycontineur{
+    margin-top:170px;
+}
+.cart-page {
+    margin-top: 20px;
+    padding: 0 15px;
+}
+
+/* Styling for the cart item images */
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Styling for the cart summary section */
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.cart-summary h4 {
+    margin-bottom: 20px;
+}
+
+.cart-summary table {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Full width button for checkout */
+button {
+    width: 100%;
+}
+
+/* Additional styles for the cart icon and badge */
+.navbar .nav-link .cart-icon-text {
+    margin-left: 5px;
+}
+
+.navbar .nav-link {
+    position: relative; /* Ensure badge is positioned relative to the nav link */
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-link .cart-badge {
+    position: absolute;
+    top: -10px; /* Adjust as needed */
+    right: -10px; /* Adjust as needed */
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .cart-item-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cart-page h2 {
+        font-size: 1.5em;
+    }
+
+    .cart-summary {
+        text-align: left;
+    }
+
+    .cart-summary h4 {
+        font-size: 1.2em;
+    }
+
+    .cart-summary table {
+        font-size: 0.9em;
+    }
+
+    .cart-summary button {
+        font-size: 1em;
+    }
+
+    .navbar .nav-link .cart-badge {
+        top: -5px;
+        right: -5px;
+        padding: 0.2em 0.35em;
+        font-size: 70%;
+    }
+}
