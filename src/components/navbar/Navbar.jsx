@@ -1,20 +1,28 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
 import { Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import cartItems from "../../cartItems.js";
+
 import "./navbar.css";
 
 
-const MyNavbar = () => {
+function MyNavbar ({cartItems})  {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  const [totalItemsInCart, setTotalItemsInCart] = useState(0);
+
+  // This useEffect hook will recalculate the total whenever cartItems change
+  useEffect(() => {
+    const total = cartItems?.reduce((total, item) => total + item.quantity, 0) || 0;
+    setTotalItemsInCart(total);
+    console.log("Cart items:", cartItems); // Debugging line to check cartItems structure
+  }, [cartItems]);
 
 
   return (
@@ -37,9 +45,9 @@ const MyNavbar = () => {
        
             <Nav.Link className="cart-link">
                                     <Link to={'/Cart'}>
-                                    {totalQuantity > 0 && (
+                                    {totalItemsInCart > 0 && (
                                         <Badge pill bg="danger" className="cart-badge">
-                                            {totalQuantity}
+                                            {totalItemsInCart}
                                         </Badge>
                                     )}
                                     
@@ -90,7 +98,7 @@ const MyNavbar = () => {
           <Button className='cancelbtn' variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <span className='psw'>Forgot <a href='#' >password?</a></span>
+          <span className='psw'>Forgot li <Link>password?</Link></span>
           </div>
         </Modal.Footer>
       </Modal>

@@ -1,33 +1,92 @@
+/* Container Styling */
 .container {
-  padding: 20px;
+  padding: 2rem 0;
 }
 
+h2.text-center {
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Card Styling */
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.text-warning {
-  color: #ffc107 !important;
+.card-img-top {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
-.text-muted {
-  color: #ddd !important;
+.card-body {
+  padding: 1.5rem;
+  text-align: center;
 }
 
-h2 {
-  margin-bottom: 30px;
+.card-title {
+  font-size: 1.3rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-button {
-  transition: 0.3s ease;
+.card-text div {
+  margin-bottom: 0.5rem;
 }
 
-button:hover {
-  background-color: #0056b3;
+/* Price Styling */
+.card-text strong {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+/* Rating Styling */
+.text-warning {
+  font-size: 1.1rem;
+}
+
+/* Badge Styling */
+.badge {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Add to Cart Button */
+button.w-100 {
+  background-color: #28a745;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button.w-100:hover {
+  background-color: #218838;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+
+  h2.text-center {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-text strong {
+    font-size: 1.1rem;
+  }
 }

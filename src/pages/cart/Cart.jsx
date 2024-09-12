@@ -1,34 +1,28 @@
 import React from 'react';
-import { Container, Row, Col, Table, Button, Image} from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
+import './cart.css'; // Import the CSS file
 import Navbar from '../../components/navbar/Navbar';
-import cartItems from "../../cartItems.js"
-import './cart.css';
 
-function Cart() {
-    
- 
+function Cart({ cartItems }) {
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-   
-    const handleCheckout = () => {
-        
-        alert('Proceeding to checkout...');
-    };
-
     return (
-        <div className='mycontineur'>
-            <Navbar/>
-            <Container className="cart-page">
-                <Row>
-                    <Col>
-                        <h2>Shopping Cart</h2>
+        
+        <div className="mycontineur">
+            <Navbar cartItems={cartItems}/>
+            <div className="cart-page">
+
+                <h2>Your Cart</h2>
+                {cartItems.length === 0 ? (
+                    <p>Your cart is empty.</p>
+                ) : (
+                    <>
                         <Table striped bordered hover responsive>
                             <thead>
                                 <tr>
                                     <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Color</th>
                                     <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Total</th>
                                 </tr>
                             </thead>
@@ -36,45 +30,37 @@ function Cart() {
                                 {cartItems.map(item => (
                                     <tr key={item.id}>
                                         <td>
-                                            <Image src={item.image} rounded className="cart-item-image" />
+                                            <img 
+                                                src={item.image} 
+                                                alt={item.name} 
+                                                className="cart-item-image" 
+                                            />
                                             {item.name}
                                         </td>
-                                        <td>{item.quantity}</td>
-                                        <td>{item.color}</td>
                                         <td>${item.price.toFixed(2)}</td>
+                                        <td>{item.quantity}</td>
                                         <td>${(item.price * item.quantity).toFixed(2)}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </Table>
-                    </Col>
-                </Row>
-                <Row className="cart-summary">
-                    <Col md={{ span: 4, offset: 8 }}>
-                        <h4>Cart Summary</h4>
-                        <Table bordered>
-                            <tbody>
-                                <tr>
-                                    <td>Subtotal</td>
-                                    <td>${totalPrice.toFixed(2)}</td>
-                                </tr>
-                                <tr>
-                                    <td>Shipping</td>
-                                    <td>Free</td>
-                                </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>${totalPrice.toFixed(2)}</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                        <Button variant="primary" size="lg" block onClick={handleCheckout}>
-                            Proceed to Checkout
-                        </Button>
-                    </Col>
-                </Row>
-            </Container>
-    </div>
-    )
+                        <div className="cart-summary">
+                            <h4>Cart Summary</h4>
+                            <Table>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Total Price:</strong></td>
+                                        <td>${totalPrice.toFixed(2)}</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                            <Button variant="success">Proceed to Checkout</Button>
+                        </div>
+                    </>
+                )}
+            </div>
+        </div>
+    );
 }
+
 export default Cart;

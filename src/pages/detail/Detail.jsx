@@ -8,7 +8,7 @@ import './detail.css';
 
 
 
-function Detail() {
+function Detail({ addToCart, cartItems }) {
     const { id } = useParams();
     const product = products.find(p => p.id === parseInt(id));
 
@@ -18,7 +18,7 @@ function Detail() {
 
     return (
      <div>
-        <Navbar/>
+        <Navbar cartItems={cartItems}/>
         <Container className="detail-page">
             <Row>
                 <Col md={6}>
@@ -46,7 +46,7 @@ function Detail() {
                                 <br />
                                 {product.description}
                             </Card.Text>
-                            <Button variant="primary">Add to Cart</Button>
+                            <Button variant="primary"  onClick={() => addToCart(product)}>Add to Cart</Button>
                         </Card.Body>
                     </Card>
                 </Col>

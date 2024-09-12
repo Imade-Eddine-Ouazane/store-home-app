@@ -12,7 +12,7 @@ const categories = ['All', 'Watch', 'Accessories', 'Electronics','Mobile','Sofa'
 const ratings = ['All', '4 stars & up', '3 stars & up', '2 stars & up', '1 star & up'];
 
 
-function Shop() {
+function Shop({ addToCart, cartItems }) {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedRating, setSelectedRating] = useState('All');
     
@@ -24,10 +24,10 @@ function Shop() {
         return categoryMatch && ratingMatch;
     });
 
+    
     return (
         <>
-            <Navbar/>
-
+            <Navbar cartItems={cartItems}/>
             <Container className="shop-page">
                 <Row>
                     <Col md={3} className="filter-section">
@@ -75,7 +75,6 @@ function Shop() {
                                             <Card.Body>
                                                 <Card.Title>{product.name}</Card.Title>
                                                 <Card.Text>
-                                                    
                                                     <strong>${product.price.toFixed(2)}</strong>
                                                     <br />
                                                     <div className="rating">
@@ -93,17 +92,18 @@ function Shop() {
                                                 <Link to={`/detail/${product.id}`}>
                                                     <Button variant="primary" className="me-2">View Details</Button>
                                                 </Link>
-                                                <Button variant="secondary">Add to Cart</Button>
+                                                <Button variant="secondary" onClick={() => addToCart(product)}>
+                                                    Add to Cart
+                                                </Button>
                                             </Card.Body>
                                         </Card>
                                     </Col>
                                 ))
                             ) : (
                                 <Col>
-                                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHQwejBzMnZwdDY1YW54bDF5eHprNWNpaGkxajRkdTdpa2FtNHE1ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lqFHf5fYMSuKcSOJph/giphy.webp" alt="" srcset="" />
+                                    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHQwejBzMnZwdDY1YW54bDF5eHprNWNpaGkxajRkdTdpa2FtNHE1ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lqFHf5fYMSuKcSOJph/giphy.webp" alt="No products found" />
                                 </Col>
                             )}
-                            
                         </Row>
                     </Col>
                 </Row>

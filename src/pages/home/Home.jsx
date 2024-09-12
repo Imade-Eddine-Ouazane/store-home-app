@@ -6,13 +6,13 @@ import Footer from '../../components/footer/Footer';
 import Aboutus from '../../components/aboutus/Aboutus';
 import Contact from '../../components/contact/contact';
 import "./home.css"
-function Home() {
+function Home({ addToCart, cartItems }) {
     return (
   
         <div>
-            <Navbar/>
+            <Navbar cartItems={cartItems}/>
             <Header/>
-            <ProductGrid/>
+            <ProductGrid addToCart={addToCart} />
             <Aboutus/>
             <Contact/>
             <Footer/>

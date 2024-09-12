@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import { Link} from 'react-router-dom';
 
 function Footer() {
   return (
@@ -24,14 +24,10 @@ function Footer() {
           <Col md={4}>
             <h5>Follow Us</h5>
             <ul className="list-unstyled">
-
-            <li><a href="#" className="text-light">Facebook</a></li>
-              <li><a href="#" className="text-light">Twitter</a></li>
-              <li><a href="#" className="text-light">Instagram</a></li>
-
-            <li><a href="#" className="text-light">Facebook</a></li>
-              <li><a href="#" className="text-light">Twitter</a></li>
-              <li><a href="#" className="text-light">Instagram</a></li>
+              
+            <li><Link to={"/"}>Facebook</Link></li>
+              <li><Link to={"/"}>Twitter</Link></li>
+              <li><Link to={"/"}>Instagram</Link></li>
             </ul>
           </Col>
         </Row>

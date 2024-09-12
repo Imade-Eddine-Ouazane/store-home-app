@@ -1,10 +1,12 @@
 import React from 'react';
 import { Card, Button, Row, Col, Badge } from 'react-bootstrap';
+import "./produit.css";
 
 import products from '../../products';
 
-const ProductGrid = () => {
- 
+function ProductGrid({ addToCart }) {
+
+
   const discountedProducts = products.filter(product => product.discount).slice(0, 5);
 
   return (
@@ -38,9 +40,10 @@ const ProductGrid = () => {
                     </span>
                   </div>
                 </Card.Text>
-                <Button variant="outline-primary" className="w-100 mt-3">
+                <Button variant="primary" className="w-100 mt-3" onClick={() => addToCart(product)}>
                   <i className="bi bi-plus"></i> Add to Cart
                 </Button>
+
               </Card.Body>
             </Card>
           </Col>
